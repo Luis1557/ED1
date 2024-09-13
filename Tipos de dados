@@ -1,0 +1,130 @@
+1
+#include <stdio.h>
+
+int main() {
+    // Declaração e inicialização de variáveis
+    int numero_inteiro = 10;
+    float numero_float = 5.75;
+    char caractere = 'A';
+    double numero_double = 3.1415926535;
+    
+    // Impressão dos valores
+    printf("Valor do int: %d\n", numero_inteiro);
+    printf("Valor do float: %.2f\n", numero_float);  // Mostra 2 casas decimais
+    printf("Valor do char: %c\n", caractere);
+    printf("Valor do double: %.10lf\n", numero_double);  // Mostra 10 casas decimais
+
+    return 0;
+}
+
+2
+#include <stdio.h>
+
+int main() {
+    int numeros[6];
+    int i, maior, menor, soma = 0;
+    float media;
+
+    // Leitura dos 6 números
+    printf("Digite 6 números inteiros:\n");
+    for(i = 0; i < 6; i++) {
+        printf("Número %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+        soma += numeros[i];
+
+        // Atualiza o maior e o menor número
+        if(i == 0) {
+            maior = menor = numeros[i]; // Inicializa o maior e menor com o primeiro número
+        } else {
+            if(numeros[i] > maior) {
+                maior = numeros[i];
+            }
+            if(numeros[i] < menor) {
+                menor = numeros[i];
+            }
+        }
+    }
+
+    // Cálculo da média
+    media = soma / 6.0;
+
+    // Exibe os resultados
+    printf("\nMédia dos números: %.2f\n", media);
+    printf("Maior número: %d\n", maior);
+    printf("Menor número: %d\n", menor);
+
+    return 0;
+}
+
+3 Não consegui realizar.
+
+4
+#include <stdio.h>
+
+// Definindo a estrutura Aluno
+struct Aluno {
+    char nome[50];
+    int idade;
+    float nota;
+};
+
+int main() {
+    // Declaração de um array de 3 alunos
+    struct Aluno alunos[3];
+    int i;
+
+    // Leitura das informações dos 3 alunos
+    for(i = 0; i < 3; i++) {
+        printf("Digite as informações do aluno %d:\n", i + 1);
+
+        // Leitura do nome
+        printf("Nome: ");
+        scanf(" %[^\n]s", alunos[i].nome); // Leitura de string com espaços
+
+        // Leitura da idade
+        printf("Idade: ");
+        scanf("%d", &alunos[i].idade);
+
+        // Leitura da nota
+        printf("Nota: ");
+        scanf("%f", &alunos[i].nota);
+
+        printf("\n");
+    }
+
+    // Exibindo as informações dos alunos
+    printf("Informações dos alunos:\n");
+    for(i = 0; i < 3; i++) {
+        printf("Aluno %d:\n", i + 1);
+        printf("Nome: %s\n", alunos[i].nome);
+        printf("Idade: %d\n", alunos[i].idade);
+        printf("Nota: %.2f\n", alunos[i].nota);
+        printf("\n");
+    }
+
+    return 0;
+}
+
+5
+#include <stdio.h>
+#include <string.h> // Biblioteca necessária para funções de manipulação de strings
+
+int main() {
+    char str1[100], str2[100];
+
+    // Leitura das duas strings
+    printf("Digite a primeira string: ");
+    scanf(" %[^\n]s", str1);
+
+    printf("Digite a segunda string: ");
+    scanf(" %[^\n]s", str2);
+
+    // Comparação das strings usando a função strcmp
+    if(strcmp(str1, str2) == 0) {
+        printf("As strings são iguais.\n");
+    } else {
+        printf("As strings são diferentes.\n");
+    }
+
+    return 0;
+}
